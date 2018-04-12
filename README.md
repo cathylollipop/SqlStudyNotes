@@ -2,16 +2,29 @@
 
 ## Database Design
 #### Some Concepts
-* Relation : connections between data
-* Entity : anything that we store information about. eg.Calab, Bill
+* Entity : anything that we store information / data about. eg.Calab, Bill
 * Entity type : categories of entities. eg.user
 * Attribute : things we store
 * Attribute typse : categories of attributes. eg. name, username, password
 * Attribute values : eg.Calab, CalabCurry, pass123
+* Relation : connections between two sets of data -> another name of a table -> different sets of data
+* Table : physical representation of relation
+* Rows : specific entries
+* Tuple : another thing of row -> all the attributes about a specific entity -> a row on a table
+* Columns : specific attribute
+* Other: File(table) Record(row) Field(column) 
+* Value : the specific information we put in to a specific column 
+* Entry : a row
+* Schema : drawn out structure of our database
 * Database Management System (DBMS) : allows us easily manipulate with and manage data
 * RDBMS : design to work with relational database, eg. MySQL, SQL, Oracle
 * allows us to change the data is presented -> veiw mechanism -> giving different views -> security feature
 * front end is consistency
+* Null : when someone doesn't enter a value on a column of a table -> empty value, no value, no data
+* Anomalies : error within our data integrity, go away from normal
+* Integrity : implmente integrity to protect agains anomalies
+* Normalization : the process of building best database design
+* Keys
 #### SQL
 * a programming language used to communicate to a database -> mediator btw computer, database and human
 * 2 main categories:
@@ -24,6 +37,13 @@
 * Conceptual Schema : how things / data are related, general ideas
 * Logical Schema : start to plan out table structure
 * Physical Schema : specific, actually implementing database, what server, how to get access to our data
+#### Data Integrity
+* Entity Integrity : having uniqueness among entities -> unique entities, id -> uniqueness of entities
+* Referential Integrity : when we reference the id of a table with another table, keys across multiple table
+* Domain Integrity : the range of values that are accepatable for a column, eg. phone should be a 10-digit number
+* Data Type : Numbers, Text, Dates -> can put limits on the data we want to store, eg. char(20)
+* Foreign key constraints
+
 
 
 ## Oracle Database
