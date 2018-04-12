@@ -57,6 +57,7 @@
 * Not to store multiple things in a column -> singlular
 #### Relationships
 * In a database, everything is connected, rather than storing everything in a giant table, split it out, break into multiple tables
+* binary relationships
 * Relationships talk about entities, they are related in some way, there is a relationship btw them
 * One-to-One Relationships : one entity has connection to another one entity. eg.marriage, SSN
 * One-to-Many Relationships : one entity can have a relationship to multiple other entities, but a specific entity can only be related back to the one entity. eg.comment on a youtube video -> a user can have many comments, but one comment is owned by one user
@@ -69,6 +70,17 @@
 #### Design One-to-Many Relationships
 * two tables : eg. one user can have multiple credit cards, but one card can only be owned by one user. -> put userId in the card table. -> many side gets a foreign key pointing to the one side.
 * Foreign key : id connection, foreign key points to the primay key in the primay table -> parent-child relationship, child has to point to parent.
+* child has the foreign key pointing back to the parent
+#### Design Many-to-Many Relationships
+* the two many sides are both parents
+* break up into two one-to-many relationships and an intermediary table (3 tables)
+* eg. classes & students -> need an intermediary / junction table -> how we connect our tables
+* intermediary becomes the child point to both parents
+* class table (1) : id(primary key)
+* intermediary table (many) allows one table talks to another table : class_id student_id -> foreign keys
+* students table (1) : id(primary key)
+* ![image](https://user-images.githubusercontent.com/20292261/38683405-fa29b7f6-3e32-11e8-9d38-d8ce88b3735d.png)
+
 
 ## Oracle Database
 Enterprise database
@@ -89,3 +101,6 @@ Enterprise database
 * Constraint : to protect the primary key, foreign key, and relationships
 * Indexes : allows the database to find the information faster -> primary keys will get the indexes automatically
 * Data type
+
+
+Reference: https://www.youtube.com/channel/UCZUyPT9DkJWmS_DzdOi7RIA
