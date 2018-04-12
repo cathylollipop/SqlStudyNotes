@@ -80,6 +80,52 @@
 * intermediary table (many) allows one table talks to another table : class_id student_id -> foreign keys
 * students table (1) : id(primary key)
 * ![image](https://user-images.githubusercontent.com/20292261/38683405-fa29b7f6-3e32-11e8-9d38-d8ce88b3735d.png)
+#### Keys
+* should always be unique : eg. natural key - what already in the table, no need to create new key, eg. username
+* key should never be changing
+* never Null 
+#### Index
+* we order the data that database can understand how to find data
+* key is a type of index
+#### Look up tables
+* ids help create better connections between tables requiring less maintainance for our database and also protect our integrity -> don't need to worry about incorrect values in "many" side tables, just need to update one row in "1" side
+* foreign key constraints
+* what do keys do for us? 
+* Protect our integrity - only update some value, less maintainance, less incorrectness
+* Make things unique
+* Improves speed, improves functionality of our database
+* Make updating easier - less work
+* Allows for added complexity - add new column 
+#### Superkey & Candidate Key
+* superkey : any number of columns that forces every row to be unique, superkey is usually not defined in db table, each row is unique. superkey is for designing database only, not practical. superkey is asking : Can every row be unique always? 
+* candidate key : the least number of columns, eg. the username is unique and enough to make each row unique. candidate key is asking : How many columns are needed? 
+* How many candidate keys do I have? we can have more than one candidate key. eg. username and email can be two candidate keys. Once we figure out all candidate keys, we decide primary key.
+#### Primary key
+* A list of possiblities of candidate keys eg. username, email, first name + last name + address + birthday...
+* pick primary key from above list based on rules (unique, never change, never Null), eg. username
+* create index for primary key
+#### Alternate Key
+* All the candidate keys that are not selected as primary key
+* it's also useful to create index for alternate keys
+#### Surrogate Key & Natural Key
+* more for database design
+* Surrogate Key : made up keys, added to your database no matter what, give an id for every single row. kept completely private. eg. user_id - random number, no real world meaning. student_id actually has real world meaning, not good choice for surrogate keys.
+* Natural Key : something that's naturally already in the table, they have real-world value. You always want to try to make things unique naturally.
+* pros of natural keys : already defined you don't need to create or define new data, smaller database
+* cons of natural keys : sometimes it's hard to find a good natural key that fits 3 key rules; natural keys have real world meaning, you have connections to real world meaning, if real world changes natural keys will change
+* pros of surrogate key : they are typically numbers, usually easy to work with
+* cons of surrogate key : you have to add a column to your table no matter what, requires you to store more data, it can be confused sometime
+#### Foreign Keys
+* a reference that references primary key in the same or separate table
+* what keeps things connected
+* you can have only one primary key but you can have multiple columns having foreign key relations to different tables but each column can only have one reference 
+* NOT NULL : you have to give a value - you are eliminating all rows that arent' have a value, you are preventing that from happening
+* NOT NULL foreign key : what is required? relationship
+* We can't have the primary key values to be changed, but we can have the foreign key reference to be changed because reference changes
+* primary key is NEVER NULL, but foreign key is not always required to have a connection to primary key, the connection is optional
+* NOT NULL forces the relationship to be there
+
+
 
 
 ## Oracle Database
