@@ -124,7 +124,48 @@
 * We can't have the primary key values to be changed, but we can have the foreign key reference to be changed because reference changes
 * primary key is NEVER NULL, but foreign key is not always required to have a connection to primary key, the connection is optional
 * NOT NULL forces the relationship to be there
-
+#### Foreign Key Constraints
+* make sure if you update parent, the children will update. protect our database
+* ON DELETE, ON UPDATE : FK constraints, referes to the parent, what happens to the parent
+* RESTRICT(NO ACTION), CASCADE(do whatever we do on the parent), SET NULL(set the children NULL, so the child can't be "Not NULL") : refers to children, what happens to the child
+#### Simple Key, Composite Key, Compound Key
+* Simple Key : the key can consist of one column. eg. username
+* Composite Key : the key can consist of two or more comlumns, multiple columns. eg. (fn + ln + email)
+* eg. user - video comments is a many to many relationship, but one user can comment on the same video multiple times. So the intermediary table bould be: time is not a key, so the row is not compund key but composite key
+* ![image](https://user-images.githubusercontent.com/20292261/39097139-f3827512-461d-11e8-830f-c7f710761708.png)
+* Compound Key : intermediary table in many to many relationship, the combination of keys from two tables is uqique
+* eg.student - class is a many to many relationship, the intermediary table is studentclass table that takes student id and class id in one row, the combination is unique. the whole row all has to be keys.
+* ![image](https://user-images.githubusercontent.com/20292261/39097116-850c9f0e-461d-11e8-8b6e-75a5a3ebc53e.png)
+#### Entity Relationship Modeling
+* Cardinality 
+* ![image](https://user-images.githubusercontent.com/20292261/39097515-d52e4f8c-4622-11e8-847d-cda90273eec2.png)
+* Modality : whether or not the relationship is requried, if the foreign key can be set NULL
+* ![image](https://user-images.githubusercontent.com/20292261/39097578-d36023dc-4623-11e8-83c0-943595144277.png)
+* the second and fourth relationship is required
+#### Database Normalization
+* Normalization : a process wehre we go through our db plan that we have and we start to correcting things that may cause data integrity problems or just repeating data, etc. 
+* Normal forms : checklist you are going to follow 
+* 3 steps normalization : 1NF, 2NF, 3NF (Normal Form)
+* First Normal Form of Database Normalization : deals with data being atomic
+* Second Normal Form of Database Normalization : deals with partial dependency - the column only depends on part of the primary key. remove all partial dependencies
+* dependencies : columns depend on primary key
+* ![image](https://user-images.githubusercontent.com/20292261/39097731-0769efd0-4626-11e8-9bcc-a7947f493489.png)
+* partial dependency : depend only some or one keys in the table not others
+* Third Normal Form of Database Normalization : deals with transitive dependencies 
+* ![image](https://user-images.githubusercontent.com/20292261/39097882-00acd778-4628-11e8-8f0a-99fbc65da43e.png)
+* star depends on review_id, start_meaning depends on start
+* take columns out and put them into their own table, create a foreign key to reference to that table
+* ![image](https://user-images.githubusercontent.com/20292261/39097897-3d89207a-4628-11e8-818e-c4a62286b961.png)
+* summary : 1NF is to make everything atomic, 2NF is to remove any partial dependencies, 3NF is removing any transitive dependencies
+#### Indexes
+* Non Clustered Index (eg. book) : points the data
+* Clustered Index (eg. phone book, A-Z) : reorganize the data
+* downside : update
+#### Data Types
+* 3 categories
+* Date : date, datetime(combination of date and time), time, timestamp
+* Numeric : numbers, signed(positive or negative) or unsigned(positive) - the range is still the same so maximun is different
+* String : subcategories - Char(fixed size) VarChar(size can change)
 
 
 
